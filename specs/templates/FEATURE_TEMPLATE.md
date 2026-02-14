@@ -1,8 +1,13 @@
 # Feature: [Feature Name]
 
+---
+linear: [Linear ticket URL, e.g. https://linear.app/org/issue/ENG-123]
+ticket: [Linear ticket ID, e.g. ENG-123]
+---
+
 ## Status
 
-Draft | In Review | Approved | Implemented
+Draft | In Review | Approved | In Progress | Implemented
 
 ## Summary
 
