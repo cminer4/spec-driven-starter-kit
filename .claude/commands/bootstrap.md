@@ -107,6 +107,8 @@ specs/
 │   ├── FEATURE_TEMPLATE.md      # Copy from starter kit if missing
 │   └── ARCHITECTURE_TEMPLATE.md # Copy from starter kit if missing
 ├── features/                    # Empty or existing specs
+├── bugs/                        # Bug reports (from /debug)
+├── BUG-REGISTRY.md              # Master bug list (create if missing)
 └── architecture/                # Empty, ready for ADRs
 ```
 

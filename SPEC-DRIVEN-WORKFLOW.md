@@ -177,6 +177,10 @@ When a bug indicates the spec was incomplete or wrong:
 | Bug fix that doesn’t change intended behavior | No spec change needed — the spec was correct; the implementation was wrong. |
 | Bug fix that reveals the spec was wrong | **Amend** the spec to reflect the correct behavior. |
 
+### Using the /debug Command
+
+Run `/debug [bug description]` for systematic bug investigation: bug report, Linear ticket, investigation, BUG-REGISTRY updates, and constitution recommendations. See [GETTING-STARTED.md](GETTING-STARTED.md) for full details.
+
 ### Using Claude Code for Debugging with Spec Context
 
 When debugging with Claude Code (or similar AI tools):

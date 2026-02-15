@@ -4,7 +4,7 @@ A reusable template for building applications with AI assistance. Designed for *
 
 ## What's Included
 
-- **8 Slash Commands**: `/bootstrap`, `/new-spec`, `/explore`, `/design`, `/plan`, `/implement`, `/review`, `/deploy`
+- **9 Slash Commands**: `/bootstrap`, `/new-spec`, `/explore`, `/design`, `/plan`, `/implement`, `/review`, `/deploy`, `/debug`
 - **CLAUDE.md Constitution**: Project-specific technical rulebook (customized via `/bootstrap`)
 - **Spec-Driven Workflow**: Specs before code — Linear integration, TDD enforcement
 - **Linear MCP Integration**: Create tickets from specs, link commits and branches
@@ -55,7 +55,9 @@ This creates a spec and Linear ticket. Then follow the workflow: `/explore` → 
 │   ├── features/          # Feature specifications
 │   ├── explorations/      # Requirement analysis (from /explore)
 │   ├── designs/           # UI/UX explorations (from /design)
-│   └── architecture/     # Architecture decision records
+│   ├── bugs/              # Bug reports (from /debug)
+│   ├── BUG-REGISTRY.md    # Master bug list
+│   └── architecture/      # Architecture decision records
 ├── CLAUDE.md              # Project constitution (customize per project)
 ├── SPEC-DRIVEN-WORKFLOW.md
 ├── GETTING-STARTED.md     # Full guide
@@ -75,6 +77,7 @@ This creates a spec and Linear ticket. Then follow the workflow: `/explore` → 
 | 6 | `/implement [spec]` | Build the feature (TDD) |
 | 7 | `/review [spec]` | Code review before merge |
 | 8 | `/deploy [spec]` | Deploy to production |
+| 9 | `/debug [bug]` | Investigate bug, create ticket, update BUG-REGISTRY |
 
 ## Linear Setup
 

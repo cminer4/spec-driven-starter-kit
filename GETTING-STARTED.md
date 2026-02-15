@@ -4,7 +4,7 @@
 
 This is a complete development workflow system designed for **non-technical founders** to build applications with AI assistance. It includes:
 
-- **8 Slash Commands**: `/bootstrap`, `/new-spec`, `/explore`, `/design`, `/plan`, `/implement`, `/review`, `/deploy`
+- **9 Slash Commands**: `/bootstrap`, `/new-spec`, `/explore`, `/design`, `/plan`, `/implement`, `/review`, `/deploy`, `/debug`
 - **CLAUDE.md Constitution**: A template that defines your project's technical rules
 - **Spec-Driven Methodology**: A structured approach to building features
 - **Linear Integration**: Automatic ticket creation and tracking
@@ -233,6 +233,30 @@ Use Cursor and ask: "Interview me to bootstrap this project and fill in the CLAU
 
 ---
 
+### 9. `/debug` [bug description or ticket ID]
+**When**: A bug is found — in development, testing, or production
+**What it does**:
+- Captures structured bug report
+- Creates Linear ticket
+- Investigates root cause (in business terms)
+- Updates BUG-REGISTRY
+- Recommends CLAUDE.md updates if bug reveals systemic issues
+- Optionally implements fix (when you say "fix it")
+
+**Example**:
+```
+/debug Users can't log in when they enter wrong password twice
+```
+
+**Output**: 
+- `specs/bugs/[slug]-report.md`
+- `specs/BUG-REGISTRY.md` updated
+- Linear ticket created
+
+**Key principle**: Update spec first if bug reveals spec gap; document patterns in constitution
+
+---
+
 ## The Workflow (Full Feature Lifecycle)
 ```
 1. /new-spec "Add user dashboard"
@@ -371,6 +395,8 @@ my-app/
 │   ├── features/           # Feature specs
 │   ├── explorations/       # Requirement analysis
 │   ├── designs/            # UI/UX explorations
+│   ├── bugs/               # Bug reports (from /debug)
+│   ├── BUG-REGISTRY.md     # Master bug list
 │   └── architecture/       # Technical decisions
 ├── CLAUDE.md               # Project constitution (customize per project)
 ├── README.md               # Project overview
