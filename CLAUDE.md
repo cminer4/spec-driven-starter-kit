@@ -16,7 +16,7 @@ This is a **template constitution** for the spec-driven development starter kit.
 8. **Code Style** — Update to match your language and toolchain (RuboCop, ESLint, etc.).
 9. **Architectural Constraints** — Adjust for your architecture style (monolith, microservices, etc.).
 
-**Reference**: See [SPEC-DRIVEN-WORKFLOW.md](SPEC-DRIVEN-WORKFLOW.md) for the full spec-driven process.
+**Reference**: See [GUIDE.md](GUIDE.md) for the full spec-driven process.
 
 ---
 
@@ -56,7 +56,7 @@ All features and significant architecture decisions must be specified **before**
 - **Specs are the contract** — Implementation must fulfill the spec. The spec defines *what* and *why*, not *how*.
 - **Specs evolve** — When requirements change, update the spec before or alongside the code.
 
-**Source**: [SPEC-DRIVEN-WORKFLOW.md](SPEC-DRIVEN-WORKFLOW.md)  
+**Source**: [GUIDE.md](GUIDE.md)  
 **Verification**: Spec exists and is Approved before implementation; code review checks spec alignment.
 
 ### III. Linear Integration
@@ -68,7 +68,7 @@ Features are traced to Linear tickets for planning and commit linking.
 - **Commit format**: `{TICKET-ID} Short description`
 - **Branch naming**: `{ticket-id}-{short-description}` or `{ticket-id}/{description}`
 
-**Source**: [SPEC-DRIVEN-WORKFLOW.md](SPEC-DRIVEN-WORKFLOW.md) — Linear Integration section  
+**Source**: [GUIDE.md](GUIDE.md) — Linear Integration section  
 **Verification**: Feature specs reference Linear ticket; commits and branches include ticket ID.
 
 ### IV. Test Discipline (TDD Enforced)
@@ -163,7 +163,7 @@ specs/
 └── architecture/                # Architecture decision records
 ```
 
-**Reference**: [SPEC-DRIVEN-WORKFLOW.md](SPEC-DRIVEN-WORKFLOW.md) — Quick Reference
+**Reference**: [GUIDE.md](GUIDE.md) — Quick Reference
 
 ---
 

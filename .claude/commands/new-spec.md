@@ -142,7 +142,7 @@ ticket: [Linear ticket ID, e.g. ENG-123]
 
 3. Replace `**Feature Branch**: \`[TICKET-ID]-[feature-slug]\`` with the actual branch name (e.g., `ENG-123-user-dashboard-activity-feed`).
 
-4. **Optionally** rename the file to `specs/features/[TICKET-ID]-[feature-slug].md` to match the naming convention in SPEC-DRIVEN-WORKFLOW.md. If you rename, update any references.
+4. **Optionally** rename the file to `specs/features/[TICKET-ID]-[feature-slug].md` to match the naming convention in GUIDE.md. If you rename, update any references.
 
 ### 7. Report Back
 
@@ -151,7 +151,7 @@ Summarize for the user:
 - Spec saved to: `specs/features/[filename].md`
 - Linear ticket: [URL] (or note that they need to create it manually)
 - Suggested branch: `[ticket-id]-[feature-slug]`
-- Next step: Review the spec, resolve NEEDS CLARIFICATION items, then proceed to implementation per SPEC-DRIVEN-WORKFLOW.md
+- Next step: Review the spec, resolve NEEDS CLARIFICATION items, then proceed to implementation per GUIDE.md
 
 ## Example Usage
 

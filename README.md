@@ -59,8 +59,7 @@ This creates a spec and Linear ticket. Then follow the workflow: `/explore` → 
 │   ├── BUG-REGISTRY.md    # Master bug list
 │   └── architecture/      # Architecture decision records
 ├── CLAUDE.md              # Project constitution (customize per project)
-├── SPEC-DRIVEN-WORKFLOW.md
-├── GETTING-STARTED.md     # Full guide
+├── GUIDE.md               # Complete guide (setup, commands, workflow)
 └── docs/
     └── MCP-LINEAR-TROUBLESHOOTING.md
 ```
@@ -88,8 +87,7 @@ This creates a spec and Linear ticket. Then follow the workflow: `/explore` → 
 
 ## Documentation
 
-- **[GETTING-STARTED.md](GETTING-STARTED.md)** — Full guide, command details, troubleshooting
-- **[SPEC-DRIVEN-WORKFLOW.md](SPEC-DRIVEN-WORKFLOW.md)** — Spec process, Linear integration, code review
+- **[GUIDE.md](GUIDE.md)** — Complete guide: setup, all 9 commands, workflow, spec process, troubleshooting
 - **[docs/MCP-LINEAR-TROUBLESHOOTING.md](docs/MCP-LINEAR-TROUBLESHOOTING.md)** — Linear MCP setup and fixes
 
 ## Key Principles
