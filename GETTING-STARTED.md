@@ -4,7 +4,7 @@
 
 This is a complete development workflow system designed for **non-technical founders** to build applications with AI assistance. It includes:
 
-- **7 Slash Commands**: `/bootstrap`, `/new-spec`, `/explore`, `/design`, `/plan`, `/implement`, `/review`, `/deploy`
+- **8 Slash Commands**: `/bootstrap`, `/new-spec`, `/explore`, `/design`, `/plan`, `/implement`, `/review`, `/deploy`
 - **CLAUDE.md Constitution**: A template that defines your project's technical rules
 - **Spec-Driven Methodology**: A structured approach to building features
 - **Linear Integration**: Automatic ticket creation and tracking
@@ -85,6 +85,8 @@ claude
 - Who are the users?
 - Does it handle payments?
 - Timeline and budget constraints?
+- **Branding & design guidelines?** (colors, fonts, logo, tone)
+- **Create Linear project?** (yes/no — default name matches workspace)
 
 **If `/bootstrap` doesn't work in Claude Code:**
 Use Cursor and ask: "Interview me to bootstrap this project and fill in the CLAUDE.md constitution"
@@ -342,11 +344,12 @@ In Cursor, manually ask: "Interview me to bootstrap this project. Ask me busines
 
 **Check**:
 1. Do you have a Linear account?
-2. Is Linear MCP server configured in `.mcp.json`?
-3. Did you authenticate via OAuth?
+2. Is Linear MCP configured in `.cursor/mcp.json`?
+3. Is Linear enabled in Cursor Settings → MCP?
+4. Did you authenticate via OAuth? (browser opens on first use)
 
 **Fix**:
-See Linear MCP setup in original conversation history.
+See [docs/MCP-LINEAR-TROUBLESHOOTING.md](docs/MCP-LINEAR-TROUBLESHOOTING.md) for setup and troubleshooting.
 
 ---
 

@@ -1,50 +1,101 @@
-# my-app
+# Spec-Driven Development Starter Kit
 
-## Spec-Driven Development
+A reusable template for building applications with AI assistance. Designed for **non-technical founders** — all interactions use business language, not technical jargon.
 
-This project follows a spec-driven development workflow. Specifications are written **before** implementation, serving as the source of truth for what the software should do and how it should be structured.
+## What's Included
 
-**→ See [SPEC-DRIVEN-WORKFLOW.md](SPEC-DRIVEN-WORKFLOW.md) for the full process, templates, and guidelines.**
+- **8 Slash Commands**: `/bootstrap`, `/new-spec`, `/explore`, `/design`, `/plan`, `/implement`, `/review`, `/deploy`
+- **CLAUDE.md Constitution**: Project-specific technical rulebook (customized via `/bootstrap`)
+- **Spec-Driven Workflow**: Specs before code — Linear integration, TDD enforcement
+- **Linear MCP Integration**: Create tickets from specs, link commits and branches
+- **Non-Technical Founder Mode**: AI makes technical decisions; explains in business terms
+
+## Quick Start
+
+### 1. Clone & Disconnect from Template
+
+```bash
+git clone <this-repo-url> my-new-app
+cd my-new-app
+rm -rf .git
+git init
+git add .
+git commit -m "Initial commit from spec-driven starter kit"
+```
+
+### 2. Bootstrap Your Project
+
+Open in **Cursor** (or Claude Code) and run:
+
+```
+/bootstrap
+```
+
+Answer the interview questions. The AI will:
+- Customize CLAUDE.md for your project
+- Recommend tech stack (Next.js, Rails, etc.)
+- Optionally create a Linear project
+- Set up branding/design guidelines if you have them
+
+### 3. Create Your First Feature
+
+```
+/new-spec Add user authentication
+```
+
+This creates a spec and Linear ticket. Then follow the workflow: `/explore` → `/design` → `/plan` → `/implement` → `/review` → `/deploy`.
 
 ## Project Structure
 
 ```
-my-app/
+├── .claude/commands/       # Slash commands (bootstrap, new-spec, explore, etc.)
+├── .cursor/mcp.json       # Linear MCP config (Cursor)
 ├── specs/
-│   ├── templates/       # FEATURE_TEMPLATE.md, ARCHITECTURE_TEMPLATE.md
-│   ├── features/        # Feature specifications
-│   └── architecture/    # Architecture decision records and system design
-├── src/                 # Implementation (driven by specs)
+│   ├── templates/         # FEATURE_TEMPLATE.md, ARCHITECTURE_TEMPLATE.md
+│   ├── features/          # Feature specifications
+│   ├── explorations/      # Requirement analysis (from /explore)
+│   ├── designs/           # UI/UX explorations (from /design)
+│   └── architecture/     # Architecture decision records
+├── CLAUDE.md              # Project constitution (customize per project)
 ├── SPEC-DRIVEN-WORKFLOW.md
-└── README.md
+├── GETTING-STARTED.md     # Full guide
+└── docs/
+    └── MCP-LINEAR-TROUBLESHOOTING.md
 ```
 
-## Workflow
+## The Workflow
 
-1. **Specify** — Copy a template from `specs/templates/` and create a spec in `specs/features/` or `specs/architecture/`.
-2. **Review** — Validate the spec for completeness and clarity before writing any code.
-3. **Implement** — Write code in `src/` that fulfills the spec.
-4. **Verify** — Confirm the implementation matches the spec. Update the spec if requirements evolve.
+| Step | Command | Purpose |
+|------|---------|---------|
+| 1 | `/bootstrap` | Set up new project, customize CLAUDE.md |
+| 2 | `/new-spec [feature]` | Create spec + Linear ticket |
+| 3 | `/explore [spec]` | Analyze requirements, identify ambiguities |
+| 4 | `/design [spec]` | Explore UI/UX options |
+| 5 | `/plan [spec]` | Create implementation plan |
+| 6 | `/implement [spec]` | Build the feature (TDD) |
+| 7 | `/review [spec]` | Code review before merge |
+| 8 | `/deploy [spec]` | Deploy to production |
 
-## Specs Directory
+## Linear Setup
 
-### `specs/templates/`
+1. **Enable Linear MCP** in Cursor: Settings → Features → MCP → Add Linear
+2. **Or** ensure `.cursor/mcp.json` exists with the Linear config (see [docs/MCP-LINEAR-TROUBLESHOOTING.md](docs/MCP-LINEAR-TROUBLESHOOTING.md))
+3. **Authenticate** when prompted (OAuth — no API key needed)
+4. **Choose workspace** when connecting (e.g., CM Personal Workspace)
 
-Reusable templates for new specs:
+## Documentation
 
-- **FEATURE_TEMPLATE.md** — For features, user-facing behavior, and API contracts.
-- **ARCHITECTURE_TEMPLATE.md** — For architecture decisions (ADRs), technology choices, and design patterns.
+- **[GETTING-STARTED.md](GETTING-STARTED.md)** — Full guide, command details, troubleshooting
+- **[SPEC-DRIVEN-WORKFLOW.md](SPEC-DRIVEN-WORKFLOW.md)** — Spec process, Linear integration, code review
+- **[docs/MCP-LINEAR-TROUBLESHOOTING.md](docs/MCP-LINEAR-TROUBLESHOOTING.md)** — Linear MCP setup and fixes
 
-### `specs/features/`
+## Key Principles
 
-Contains feature specifications. Each file describes a single feature including its purpose, expected behavior, inputs/outputs, and edge cases.
+- **No code without a spec** — Every feature is specified first
+- **AI makes technical decisions** — You answer business questions only
+- **TDD enforced** — Tests before implementation
+- **Constitution-first** — CLAUDE.md defines all technical rules
 
-### `specs/architecture/`
+## Using as a Template
 
-Contains architecture decision records (ADRs) and system design documents. These capture structural decisions such as technology choices, module boundaries, and data flow.
-
-## Guidelines
-
-- No code should be written without a corresponding spec.
-- Specs are living documents — update them when requirements change.
-- Keep specs concise and focused on **what** and **why**, not **how**.
+This repo is a **template for future projects**. Copy it to start new apps. Run `/bootstrap` to customize CLAUDE.md, then use the slash commands to build features spec-first.
