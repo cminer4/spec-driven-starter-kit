@@ -140,6 +140,25 @@ Then proceed with the solution. Do not ask technical questions.
 
 ## After All Phases Complete
 
+### Start Dev Server
+
+**Before displaying the summary**, ensure the user can test locally:
+
+1. **Check if a dev server is already running**
+   - Run `lsof -i :3000` (or `:3001`, `:3002` if 3000 is in use) to see if something is listening
+   - Or check for an existing `npm run dev` process
+   - If a server is running, note the URL (e.g., http://localhost:3000) for the Try It Out section
+
+2. **If no dev server is running**
+   - Run `npm run dev` in the background
+   - Wait for the startup output (Next.js, Vite, etc. prints the local URL)
+   - Capture the URL from the terminal output (e.g., "Local: http://localhost:3000")
+   - If the URL isn't printed, default to http://localhost:3000
+
+3. **Include the actual URL in Try It Out** — Use the real localhost URL, not a placeholder
+
+---
+
 **Display this summary:**
 
 ```markdown
@@ -170,7 +189,9 @@ Then proceed with the solution. Do not ask technical questions.
 2. After review passes, merge and deploy
 
 ### Try It Out
-[Specific instructions on how to test the feature manually]
+**App is running.** Open [actual URL, e.g. http://localhost:3000] to test locally.
+
+[Specific instructions on how to test the feature manually — e.g., "1. Go to the login page. 2. Enter email and password. 3. Click Sign in."]
 ```
 
 ---
