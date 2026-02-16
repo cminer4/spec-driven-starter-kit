@@ -91,7 +91,7 @@ Always use the URL printed in the terminal — if port 3000 is taken, Next.js wi
 ├── .claude/commands/       # Slash commands (bootstrap, new-spec, explore, etc.)
 ├── .cursor/rules/         # Cursor rules (e.g. dev-server-verification)
 ├── .github/workflows/     # CI (clean build + tests on push/PR)
-├── scripts/               # verify-dev-server.sh, reset-dev-server.sh, fix-webpack-error.sh
+├── scripts/               # verify-dev-server, reset-dev-server, fix-webpack-error, verify-build-health, ensure-build-health
 ├── .cursor/mcp.json       # Linear MCP config (Cursor)
 ├── specs/
 │   ├── templates/         # FEATURE_TEMPLATE.md, ARCHITECTURE_TEMPLATE.md

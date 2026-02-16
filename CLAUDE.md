@@ -94,6 +94,25 @@ All new features must follow TDD Red-Green-Refactor cycle:
 
 [Optional. Add more principles as needed.]
 
+### VII. Learning from Bugs
+
+When a bug recurs, add **automated prevention**, not just documentation. Aim for continuous improvement toward seamless agentic development.
+
+**Principles**:
+- **Automate over document** — When a bug is fixed, add a check or script that prevents it from recurring. Documentation (Gotchas, BUG-REGISTRY) is necessary but not sufficient.
+- **Systematic over one-off** — Prefer scripts, CI steps, and command integrations that run automatically. Avoid manual steps that humans must remember.
+- **Learn and improve** — Each bug fix should make the system more robust. Track patterns in `specs/bugs/` and BUG-REGISTRY; add automated guards for recurring issues.
+
+**Process**:
+1. **Fix the bug** — Resolve the immediate issue.
+2. **Document** — Add to Gotchas and BUG-REGISTRY.
+3. **Automate** — Add a verification script, CI step, or command integration so the same failure cannot reach users again.
+4. **Integrate** — Wire the automation into implement, deploy, and CI so it runs without manual invocation.
+
+**Example**: BUG (styling not applied) → `verify-build-health.sh` checks CSS output → `ensure-build-health.sh` auto-fixes and retries → wired into implement, deploy, and CI.
+
+**Verification**: Recurring bugs have corresponding automated checks; implement and deploy commands run them before declaring complete.
+
 ---
 
 ## Domain Model
@@ -201,8 +220,13 @@ specs/
 
 **Webpack cache ENOENT / build corruption** — Corrupted .next cache, incremental builds in bad state.
 - Add to `next.config.js`: `webpack: (config, { dev }) => { if (dev) config.cache = false; return config; }`
-- Use `npm run build:clean` before deploy; when build fails, run `bash scripts/fix-webpack-error.sh` then retry
+- Use `npm run ensure:build` before deploy; when build fails, run `bash scripts/fix-webpack-error.sh` then retry
 - Never deploy a branch that doesn't build
+
+**Styling not applied** — Build cache corruption; brand tokens missing from compiled CSS.
+- Run `npm run ensure:build` before implementation complete or deploy
+- `verify-build-health.sh` checks .next/static/css for brand tokens; `ensure-build-health.sh` auto-fixes and retries
+- On Vercel: redeploy with "Clear build cache" checked
 
 **Reference**: [docs/NEXTJS-DEV-BUILD-SETUP.md](docs/NEXTJS-DEV-BUILD-SETUP.md)
 

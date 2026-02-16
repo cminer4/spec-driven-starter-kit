@@ -18,6 +18,10 @@ Tracks bugs found during development. Used to prevent regressions and identify p
 **Root causes:** Corrupted .next cache, incremental webpack builds in bad state.  
 **Prevention:** In `next.config.js`, disable webpack cache in dev: `webpack: (config, { dev }) => { if (dev) config.cache = false; return config; }`. Use `npm run build:clean` before deploy; run `scripts/fix-webpack-error.sh` when build fails. Implement and deploy commands require clean build before completion. CI runs `npm run build:clean` on every push/PR. See [docs/NEXTJS-DEV-BUILD-SETUP.md](../docs/NEXTJS-DEV-BUILD-SETUP.md).
 
+### Styling not applied
+**Root causes:** Build cache corruption (local .next or Vercel build cache). CSS/brand tokens not in compiled output.  
+**Prevention:** `scripts/verify-build-health.sh` checks .next/static/css/*.css for brand tokens (--color-primary, bg-brand-primary, text-brand-primary). `scripts/ensure-build-health.sh` runs build:clean → verify:build; auto-fixes and retries if verification fails. Wired into implement, deploy, and CI. **Root fix:** build:clean or fix-webpack-error.sh locally; on Vercel, redeploy with "Clear build cache" checked. See [docs/NEXTJS-DEV-BUILD-SETUP.md](../docs/NEXTJS-DEV-BUILD-SETUP.md).
+
 ## How to Use
 
 - Run `/debug [bug description]` to document a new bug

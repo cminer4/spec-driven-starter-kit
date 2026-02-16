@@ -63,7 +63,7 @@ Run checks and report results. Use business language.
 - ✅ All tests passing ([X/X tests]) — Run test suite
 - ✅ No blockers from code review — Verified above
 - ✅ Branch is up to date with main — Run `git fetch` and compare
-- ✅ **Clean build passes** — Run `npm run build:clean` before merge/deploy. If it fails → run `bash scripts/fix-webpack-error.sh`, then retry `npm run build:clean`. **Do not deploy a branch that does not build.**
+- ✅ **Build health passes** — Run `npm run ensure:build` before merge/deploy (or `bash scripts/ensure-build-health.sh`). This runs build:clean → verify:build; if styling verification fails, auto-fixes and retries. **Do not deploy a branch that does not build or fails build health verification.**
 
 **Technical Readiness**:
 - ✅ Database migrations ready [if applicable — check plan]

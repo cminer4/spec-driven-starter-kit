@@ -25,5 +25,9 @@ When implementing or deploying:
 
 4. **Deployment**:
    - Never deploy a branch that does not build
-   - Run `npm run build:clean` before merge/deploy
+   - Run `npm run ensure:build` (or `bash scripts/ensure-build-health.sh`) before merge/deploy
    - If it fails, run the fix script and retry
+
+5. **Build health** (styling verification):
+   - Before "Implementation Complete", run `npm run ensure:build`
+   - CI runs `bash scripts/verify-build-health.sh` after build:clean — job fails if styling is missing

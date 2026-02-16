@@ -230,6 +230,16 @@ See [docs/MCP-LINEAR-TROUBLESHOOTING.md](docs/MCP-LINEAR-TROUBLESHOOTING.md) for
 - **Use `/debug`** for systematic bug investigation
 - **Spec amendments vs new specs:** Amend for same feature; new spec for new feature
 
+### Learning from Bugs (Constitution Principle VII)
+
+When a bug recurs, add **automated prevention**, not just documentation:
+1. **Fix** the bug
+2. **Document** in Gotchas and BUG-REGISTRY
+3. **Automate** — Add a verification script, CI step, or command integration
+4. **Integrate** — Wire into implement, deploy, and CI
+
+Example: Styling not applied → `verify-build-health.sh` checks CSS → `ensure-build-health.sh` auto-fixes and retries → wired into implement, deploy, CI.
+
 ---
 
 ## Part 10: Work in Progress
@@ -326,4 +336,4 @@ Filled in via `/bootstrap` or manual customization.
 
 ---
 
-**Bottom line:** This system lets you build real software without learning to code. The AI handles technical decisions while you focus on business strategy. Trust the process, follow the workflow, reference CLAUDE.md constantly. Nice job, now go make something people want! 🚀
+**Bottom line:** This system lets you build real software without learning to code. The AI handles technical decisions while you focus on business strategy. Trust the process, follow the workflow, reference CLAUDE.md and README.md. Nice job, now go make something people want! 🚀

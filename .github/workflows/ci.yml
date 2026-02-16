@@ -30,5 +30,8 @@ jobs:
       - name: Clean build
         run: npm run build:clean
 
+      - name: Verify build health
+        run: bash scripts/verify-build-health.sh
+
       - name: Run tests
         run: npm test

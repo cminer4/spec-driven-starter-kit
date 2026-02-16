@@ -140,27 +140,15 @@ Then proceed with the solution. Do not ask technical questions.
 
 ## After All Phases Complete
 
-### Clean Build Verification
+### Build Health Verification
 
-**Before displaying the summary or starting the dev server**, verify the build passes. Next.js/webpack incremental compilation can corrupt the build cache — catch it before users see it.
+**Before displaying the summary or starting the dev server**, run `npm run ensure:build` (or `bash scripts/ensure-build-health.sh` if the script exists but the npm script is not configured).
 
-1. **Run `npm run build`**
-   - If it passes → proceed to Start Dev Server and display summary
-   - If it fails → go to step 2
+- **ensure:build** runs build:clean → verify:build. If verification fails (e.g., styling not applied), it runs fix-webpack-error.sh and retries (up to 2 attempts).
+- **Do not declare "Implementation Complete"** until ensure:build exits 0.
+- If it fails after retries, **STOP**. Inform the user: "Build health verification failed. Styling or build cache may be corrupted. Try `bash scripts/fix-webpack-error.sh` then `npm run build` manually. [Share the output]"
 
-2. **First recovery attempt**
-   - Run `bash scripts/reset-dev-server.sh`
-   - Run `npm run build:clean`
-   - If it passes → proceed to Start Dev Server and display summary
-   - If it still fails → go to step 3
-
-3. **Second recovery attempt**
-   - Run `bash scripts/fix-webpack-error.sh`
-   - Run `npm run build`
-   - If it passes → proceed to Start Dev Server and display summary
-   - If it still fails → **STOP**. Inform the user: "Build is failing after cache reset. There may be a code or configuration issue. [Share the build error output]"
-
-**Only show "Implementation Complete" and start the dev server when the build passes.**
+**Only show "Implementation Complete" and start the dev server when build health passes.**
 
 ---
 
