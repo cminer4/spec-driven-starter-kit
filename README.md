@@ -4,7 +4,7 @@ A reusable template for building applications with AI assistance. Designed for *
 
 ## What's Included
 
-- **9 Slash Commands**: `/bootstrap`, `/new-spec`, `/explore`, `/design`, `/plan`, `/implement`, `/review`, `/deploy`, `/debug`
+- **10 Slash Commands**: `/bootstrap`, `/new-spec`, `/explore`, `/design`, `/plan`, `/implement`, `/review`, `/deploy`, `/debug`, `/commit`
 - **CLAUDE.md Constitution**: Project-specific technical rulebook (customized via `/bootstrap`)
 - **Spec-Driven Workflow**: Specs before code — Linear integration, TDD enforcement
 - **Linear MCP Integration**: Create tickets from specs, link commits and branches
@@ -115,6 +115,7 @@ Always use the URL printed in the terminal — if port 3000 is taken, Next.js wi
 | 7 | `/review [spec]` | Code review before merge |
 | 8 | `/deploy [spec]` | Deploy to production |
 | 9 | `/debug [bug]` | Investigate bug, create ticket, update BUG-REGISTRY |
+| — | `/commit [msg]` | Create well-formatted commit, link to Linear ticket |
 
 ## Linear Setup
 
@@ -125,7 +126,7 @@ Always use the URL printed in the terminal — if port 3000 is taken, Next.js wi
 
 ## Documentation
 
-- **[GUIDE.md](GUIDE.md)** — Complete guide: setup, all 9 commands, workflow, spec process, troubleshooting
+- **[GUIDE.md](GUIDE.md)** — Complete guide: setup, all 10 commands, workflow, spec process, troubleshooting
 - **[docs/MCP-LINEAR-TROUBLESHOOTING.md](docs/MCP-LINEAR-TROUBLESHOOTING.md)** — Linear MCP setup and fixes
 
 ## Key Principles

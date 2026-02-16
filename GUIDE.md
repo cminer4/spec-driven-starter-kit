@@ -97,7 +97,7 @@ Verify: Run `claude` and try `/new-spec`, `/explain`, etc.
 
 ---
 
-## Part 4: The 9 Commands
+## Part 4: The 10 Commands
 
 ### 1. `/bootstrap`
 **When:** Starting a new project  
@@ -148,6 +148,12 @@ Verify: Run `claude` and try `/new-spec`, `/explain`, etc.
 **When:** A bug is found  
 **What:** Bug report, Linear ticket, investigation, BUG-REGISTRY update, constitution recommendations. Phase 6 (Deploy Fix) automatically deploys fixes when you say "fix it".  
 **Output:** `specs/bugs/[slug]-report.md`, `specs/BUG-REGISTRY.md` updated
+
+### 10. `/commit` [optional message]
+**When:** After making changes, anytime during development  
+**What:** Creates well-formatted git commit with conventional format, links to Linear ticket from branch name  
+**Example:** `/commit Add login validation` or `/commit` (proposes message from changes)  
+**Principle:** Clear, descriptive commits; present tense; includes ticket ref when applicable
 
 ---
 
