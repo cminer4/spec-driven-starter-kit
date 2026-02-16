@@ -164,22 +164,30 @@ Then proceed with the solution. Do not ask technical questions.
 
 ---
 
-### Start Dev Server
+### Start Dev Server & Health Check
 
-**After build verification passes**, ensure the user can test locally:
+**After build verification passes**, ensure the user can test locally. Only say "App is running" when the health check passes.
 
 1. **Check if a dev server is already running**
    - Run `lsof -i :3000` (or `:3001`, `:3002` if 3000 is in use) to see if something is listening
    - Or check for an existing `npm run dev` process
-   - If a server is running, note the URL (e.g., http://localhost:3000) for the Try It Out section
+   - If a server is running, note the URL and port for the health check
 
 2. **If no dev server is running**
    - Run `npm run dev` in the background
    - Wait for the startup output (Next.js, Vite, etc. prints the local URL)
-   - Capture the URL from the terminal output (e.g., "Local: http://localhost:3000")
-   - If the URL isn't printed, default to http://localhost:3000
+   - Capture the URL/port from the terminal output (e.g., "Local: http://localhost:3000")
+   - If the URL isn't printed, default to http://localhost:3000 (port 3000)
 
-3. **Include the actual URL in Try It Out** — Use the real localhost URL, not a placeholder
+3. **Health check** (required before declaring success)
+   - Wait ~5 seconds after starting the dev server
+   - Run `bash scripts/verify-dev-server.sh [port]` (or `npm run verify:dev` if available)
+   - Treat 2xx/3xx response as success; exit 0 = OK, exit 1 = not responding
+   - **If health check fails** → Run `bash scripts/reset-dev-server.sh`, restart `npm run dev`, wait ~5 seconds, run health check again
+   - **Only say "App is running" or "Implementation Complete" when the health check passes**
+   - If it still fails after retry, inform the user: "Dev server started but isn't responding. Try `npm run dev:safe` or `bash scripts/reset-dev-server.sh` then `npm run dev`."
+
+4. **Include the actual URL in Try It Out** — Use the verified localhost URL, not a placeholder
 
 ---
 

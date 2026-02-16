@@ -56,6 +56,8 @@ npm run dev
 
 Open the URL shown in the terminal (e.g. http://localhost:3000 or http://localhost:3001).
 
+**If page won't load or "localhost unable to handle this request"** — Use `npm run dev:safe` (resets cache and processes, then starts) or run `bash scripts/reset-dev-server.sh` then `npm run dev`. Verify with `npm run verify:dev` if available.
+
 ### If the build fails after code changes
 
 Build cache can get corrupted. Run:
@@ -87,6 +89,9 @@ Always use the URL printed in the terminal — if port 3000 is taken, Next.js wi
 
 ```
 ├── .claude/commands/       # Slash commands (bootstrap, new-spec, explore, etc.)
+├── .cursor/rules/         # Cursor rules (e.g. dev-server-verification)
+├── .github/workflows/     # CI (clean build + tests on push/PR)
+├── scripts/               # verify-dev-server.sh, reset-dev-server.sh, fix-webpack-error.sh
 ├── .cursor/mcp.json       # Linear MCP config (Cursor)
 ├── specs/
 │   ├── templates/         # FEATURE_TEMPLATE.md, ARCHITECTURE_TEMPLATE.md

@@ -1,0 +1,34 @@
+# CI: Clean build and tests on every push/PR.
+# Prevents webpack cache corruption and broken builds from reaching main.
+# Runs only when package.json exists (skips template repo before bootstrap).
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    # Only run when package.json exists (Next.js/Node project)
+    if: hashFiles('package.json') != ''
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Clean build
+        run: npm run build:clean
+
+      - name: Run tests
+        run: npm test

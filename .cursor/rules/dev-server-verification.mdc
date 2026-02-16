@@ -1,0 +1,29 @@
+---
+description: Require dev server and build verification before declaring implementation or deployment complete
+globs:
+alwaysApply: true
+---
+
+# Dev Server & Build Verification
+
+When implementing or deploying:
+
+1. **Never declare "Implementation Complete" or "App is running"** without verification:
+   - Run the health check (`npm run verify:dev` or `bash scripts/verify-dev-server.sh`) after starting the dev server
+   - Only say "App is running" when the check passes (exit 0)
+
+2. **If verification fails**:
+   - Run `bash scripts/reset-dev-server.sh`
+   - Restart the dev server
+   - Run the health check again
+   - Do not declare success until the check passes
+
+3. **Build verification**:
+   - Before "Implementation Complete", run `npm run build` (or `npm run build:clean`)
+   - If build fails, run `bash scripts/fix-webpack-error.sh` then retry
+   - Only proceed when build succeeds
+
+4. **Deployment**:
+   - Never deploy a branch that does not build
+   - Run `npm run build:clean` before merge/deploy
+   - If it fails, run the fix script and retry

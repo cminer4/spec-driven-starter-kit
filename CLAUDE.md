@@ -193,6 +193,21 @@ specs/
 
 ---
 
+## Next.js / Dev & Build Prevention (If Using Next.js)
+
+**Page not loading / "localhost unable to handle this request"** — Port conflicts, multiple dev servers (EMFILE), stale processes.
+- Use `npm run dev:safe` or `bash scripts/reset-dev-server.sh` then `npm run dev`
+- Run `npm run verify:dev` to confirm dev server is responding before declaring success
+
+**Webpack cache ENOENT / build corruption** — Corrupted .next cache, incremental builds in bad state.
+- Add to `next.config.js`: `webpack: (config, { dev }) => { if (dev) config.cache = false; return config; }`
+- Use `npm run build:clean` before deploy; when build fails, run `bash scripts/fix-webpack-error.sh` then retry
+- Never deploy a branch that doesn't build
+
+**Reference**: [docs/NEXTJS-DEV-BUILD-SETUP.md](docs/NEXTJS-DEV-BUILD-SETUP.md)
+
+---
+
 ## Governance
 
 ### Constitution Priority
