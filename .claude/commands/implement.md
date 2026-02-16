@@ -140,9 +140,33 @@ Then proceed with the solution. Do not ask technical questions.
 
 ## After All Phases Complete
 
+### Clean Build Verification
+
+**Before displaying the summary or starting the dev server**, verify the build passes. Next.js/webpack incremental compilation can corrupt the build cache — catch it before users see it.
+
+1. **Run `npm run build`**
+   - If it passes → proceed to Start Dev Server and display summary
+   - If it fails → go to step 2
+
+2. **First recovery attempt**
+   - Run `bash scripts/reset-dev-server.sh`
+   - Run `npm run build:clean`
+   - If it passes → proceed to Start Dev Server and display summary
+   - If it still fails → go to step 3
+
+3. **Second recovery attempt**
+   - Run `bash scripts/fix-webpack-error.sh`
+   - Run `npm run build`
+   - If it passes → proceed to Start Dev Server and display summary
+   - If it still fails → **STOP**. Inform the user: "Build is failing after cache reset. There may be a code or configuration issue. [Share the build error output]"
+
+**Only show "Implementation Complete" and start the dev server when the build passes.**
+
+---
+
 ### Start Dev Server
 
-**Before displaying the summary**, ensure the user can test locally:
+**After build verification passes**, ensure the user can test locally:
 
 1. **Check if a dev server is already running**
    - Run `lsof -i :3000` (or `:3001`, `:3002` if 3000 is in use) to see if something is listening
