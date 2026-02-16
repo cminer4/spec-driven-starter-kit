@@ -45,6 +45,44 @@ Answer the interview questions. The AI will:
 
 This creates a spec and Linear ticket. Then follow the workflow: `/explore` → `/design` → `/plan` → `/implement` → `/review` → `/deploy`.
 
+## Local Development
+
+### Running the app
+
+```bash
+npm install
+npm run dev
+```
+
+Open the URL shown in the terminal (e.g. http://localhost:3000 or http://localhost:3001).
+
+### If the build fails after code changes
+
+Build cache can get corrupted. Run:
+
+```bash
+npm run build:clean
+```
+
+Or for a full reset: `bash scripts/fix-webpack-error.sh` then `npm run build`.
+
+### If the page won't load
+
+Port conflicts and stale processes can cause the app to break. Run:
+
+```bash
+bash scripts/reset-dev-server.sh
+npm run dev
+```
+
+This stops any stray dev servers, clears the build cache, and frees ports. Then start fresh.
+
+### Important: one dev server at a time
+
+Only run one `npm run dev` at a time. Leaving multiple instances running (or starting new ones without stopping old ones) exhausts system resources and causes "page not loading" or "too many open files" errors.
+
+Always use the URL printed in the terminal — if port 3000 is taken, Next.js will use 3001, 3002, etc. Visiting the wrong port shows a stale or broken app.
+
 ## Project Structure
 
 ```

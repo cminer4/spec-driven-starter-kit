@@ -191,7 +191,7 @@ Set status to `Investigated` and add BUG-REGISTRY ID.
 
 ---
 
-## Phase 6: Fix (Optional — User Decides)
+## Phase 6: Deploy Fix
 
 **Do NOT implement the fix automatically.** Present:
 
@@ -202,10 +202,13 @@ Set status to `Investigated` and add BUG-REGISTRY ID.
 **Estimated fix time**: [X minutes/hours]
 **Risk level**: [Low / Medium — e.g., "Touching auth code"]
 
-**Next step**: Say "fix it" or "implement the fix" and I'll apply the fix following TDD (test first, then code).
+**Next step**: Say "fix it" or "implement the fix" and I'll:
+1. Apply the fix following TDD (test first, then code)
+2. Update spec if needed, add tests, commit with ticket ID
+3. **Automatically deploy** the fix when done (merge to main, run deployment)
 ```
 
-If user says to fix: Implement following TDD, update spec if needed, add tests, commit with ticket ID.
+If user says to fix: Implement following TDD, update spec if needed, add tests, commit with ticket ID. **Then automatically deploy** — merge to main, run deployment steps per project setup (CI/CD, manual deploy, etc.). Provide deployment status and rollback instructions.
 
 ---
 
@@ -229,8 +232,8 @@ If user says to fix: Implement following TDD, update spec if needed, add tests, 
 
 ### Next Steps
 1. [Review the fix approach]
-2. [Say "fix it" to implement, or fix manually]
-3. [Update Linear ticket when fixed]
+2. [Say "fix it" to implement and deploy automatically, or fix manually]
+3. [Update Linear ticket when fixed and deployed]
 ```
 
 ---

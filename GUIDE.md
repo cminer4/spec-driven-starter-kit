@@ -1,6 +1,6 @@
 # Spec-Driven Development: Complete Guide
 
-A comprehensive guide to the spec-driven development workflow for non-technical founders. This merges setup, commands, workflow, and reference into one place.
+A comprehensive guide to the spec-driven development workflow for non-technical builders. This merges setup, commands, workflow, and reference into one place.
 
 ---
 
@@ -146,7 +146,7 @@ Verify: Run `claude` and try `/new-spec`, `/explain`, etc.
 
 ### 9. `/debug` [bug description or ticket ID]
 **When:** A bug is found  
-**What:** Bug report, Linear ticket, investigation, BUG-REGISTRY update, constitution recommendations  
+**What:** Bug report, Linear ticket, investigation, BUG-REGISTRY update, constitution recommendations. Phase 6 (Deploy Fix) automatically deploys fixes when you say "fix it".  
 **Output:** `specs/bugs/[slug]-report.md`, `specs/BUG-REGISTRY.md` updated
 
 ---
@@ -320,4 +320,4 @@ Filled in via `/bootstrap` or manual customization.
 
 ---
 
-**Bottom line:** This system lets you build real software without learning to code. The AI handles technical decisions while you focus on business strategy. Trust the process, follow the workflow, reference CLAUDE.md constantly. Good luck building! 🚀
+**Bottom line:** This system lets you build real software without learning to code. The AI handles technical decisions while you focus on business strategy. Trust the process, follow the workflow, reference CLAUDE.md constantly. Nice job, now go make something people want! 🚀

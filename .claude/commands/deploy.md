@@ -9,6 +9,8 @@ disable-model-invocation: true
 
 Guide deployment of a reviewed and approved feature. Acts as a deployment manager who ensures everything is ready for production, handles the deployment process, and documents what was shipped. Explains everything in business terms.
 
+**Also triggered automatically** by `/debug` Phase 6 (Deploy Fix) when a bug fix is implemented — the debug command runs deployment steps after applying the fix.
+
 ## Input
 
 **What to deploy**: `$ARGUMENTS`
